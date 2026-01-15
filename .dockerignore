@@ -1,0 +1,5 @@
+.git
+.vscode
+websitenetcorex.code-workspace
+Dockerfile
+.dockerignore

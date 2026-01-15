@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Funciona a Tezos - LPoS e Governança</title>
+    <meta name="description"
+        content="Entenda o consenso Liquid Proof-of-Stake (LPoS), o processo de Baking e como a governança on-chain funciona na prática.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="assets/img/tezos-logo.svg">
+</head>
+
+<body data-theme="dark">
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/img/tezos-logo.svg" alt="Tezos Logo">
+                Tezos Brasil
+            </a>
+            <nav>
+                <button class="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tezos.html">O que é Tezos</a></li>
+                    <li><a href="como-funciona.html" class="active">Como Funciona</a></li>
+                    <li><a href="carteiras.html">Carteiras</a></li>
+                    <li><a href="recursos.html">Recursos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Alternar tema">☀️</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1>Como Funciona</h1>
+                <p>A Tezos utiliza uma tecnologia inovadora para garantir segurança, descentralização e escalabilidade.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 style="color: var(--tezos-blue);">O Ciclo da Transação</h2>
+                <!-- Simple SVG Diagram -->
+                <div
+                    style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-bottom: 3rem; text-align: center;">
+                    <svg width="100%" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"
+                                markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#616F82" />
+                            </marker>
+                        </defs>
+
+                        <!-- Nodes -->
+                        <g transform="translate(50, 80)">
+                            <circle cx="30" cy="30" r="30" fill="#0F61FF" opacity="0.2" />
+                            <text x="30" y="35" text-anchor="middle" fill="#0F61FF" font-family="Roboto"
+                                font-weight="bold">Usuário</text>
+                        </g>
+
+                        <g transform="translate(300, 80)">
+                            <rect x="0" y="0" width="120" height="60" rx="8" fill="#1D2227" stroke="#616F82"
+                                stroke-width="2" />
+                            <text x="60" y="35" text-anchor="middle" fill="#FFFFFF" font-family="Roboto">Mempool</text>
+                        </g>
+
+                        <g transform="translate(600, 80)">
+                            <circle cx="30" cy="30" r="30" fill="#0F61FF" />
+                            <text x="30" y="35" text-anchor="middle" fill="#FFFFFF" font-family="Roboto"
+                                font-weight="bold">Baker</text>
+                        </g>
+
+                        <!-- Lines -->
+                        <line x1="120" y1="110" x2="290" y2="110" stroke="#616F82" stroke-width="2"
+                            marker-end="url(#arrow)" />
+                        <text x="205" y="100" text-anchor="middle" fill="#838893" font-size="12">Assina Transação</text>
+
+                        <line x1="430" y1="110" x2="590" y2="110" stroke="#616F82" stroke-width="2"
+                            marker-end="url(#arrow)" />
+                        <text x="510" y="100" text-anchor="middle" fill="#838893" font-size="12">Inclui em Bloco</text>
+                    </svg>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">Fluxo simplificado: Usuário envia -> Aguarda na
+                        Mempool -> Baker valida e inclui no bloco.</p>
+                </div>
+
+                <div class="grid-3">
+                    <article class="card">
+                        <h3>Liquid Proof-of-Stake (LPoS)</h3>
+                        <p>Diferente de sistemas DPoS onde apenas um grupo fixo valida, no LPoS da Tezos a validação é
+                            dinâmica. Qualquer um com XTZ suficiente (um "roll") pode ser um validador ("Baker").</p>
+                        <p style="margin-top:1rem;">Quem não quer rodar um node pode simplesmente
+                            <strong>delegar</strong> seus XTZ para um Baker, mantendo a custódia total dos seus fundos.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Baking & Endorsing</h3>
+                        <p><strong>Baking:</strong> O ato de criar novos blocos. O direito de criar um bloco é sorteado
+                            com base na quantidade de XTZ em stake.</p>
+                        <p><strong>Endorsing:</strong> Outros Bakers verificam o bloco criado. Se for válido, eles o
+                            "endossam", garantindo segurança extra.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: var(--bg-secondary);">
+            <div class="container">
+                <h2>Governança On-Chain</h2>
+                <p>O processo de atualização da Tezos é dividido em fases de votação, que ocorrem inteiramente na
+                    blockchain. Isso dá previsibilidade e legitimidade às mudanças.</p>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
+                    <div
+                        style="flex: 1; min-width: 200px; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px; border-left: 4px solid var(--tezos-blue);">
+                        <h4>1. Proposta</h4>
+                        <p style="font-size: 0.9rem;">Bakers submetem propostas de atualização de protocolo.</p>
+                    </div>
+                    <div
+                        style="flex: 1; min-width: 200px; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px; border-left: 4px solid var(--tezos-blue);">
+                        <h4>2. Exploração</h4>
+                        <p style="font-size: 0.9rem;">A comunidade vota se deve testar a proposta vencedora.</p>
+                    </div>
+                    <div
+                        style="flex: 1; min-width: 200px; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px; border-left: 4px solid var(--tezos-blue);">
+                        <h4>3. Testes</h4>
+                        <p style="font-size: 0.9rem;">A proposta roda em uma "testnet" temporária para verificar bugs.
+                        </p>
+                    </div>
+                    <div
+                        style="flex: 1; min-width: 200px; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px; border-left: 4px solid var(--tezos-blue);">
+                        <h4>4. Promoção</h4>
+                        <p style="font-size: 0.9rem;">Votação final. Se aprovada, o protocolo se autoatualiza
+                            automaticamente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <img src="assets/img/tezos-logo.svg" alt="Logo Tezos" style="height: 25px;">
+                        Tezos Brasil
+                    </div>
+                    <p style="font-size: 0.9rem;">Conteúdo educativo sobre o ecossistema Tezos. Construído para durar.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tezos.html">O que é Tezos</a></li>
+                        <li><a href="como-funciona.html" class="active">Como Funciona</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Comunidade</h4>
+                    <ul>
+                        <li><a href="carteiras.html">Carteiras</a></li>
+                        <li><a href="recursos.html">Recursos</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tezos Brasil Educativo. Não oficial. Conteúdo informativo, não é recomendação de
+                    investimento.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
